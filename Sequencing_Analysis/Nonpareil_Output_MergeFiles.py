@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-Merging of Nonpareil output files
+#################################################
 
-Author: Zoe Hansen
-Last Modified: 2019.06.10
+# Merging Output from Nonpareil for Analysis
 
-This code is designed to take the nonpareil_output.npo files from the hard drive (I://) and 
-merge them into a single file for use in R. 
+#################################################
 
-"""
+### This code is designed to use nonpareil_output.npo files and merge them into a single file for plotting in R.
+
+# Load necessary packages
 import pandas as pd
 import numpy as np
 import os
