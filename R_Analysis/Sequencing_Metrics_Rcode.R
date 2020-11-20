@@ -24,16 +24,9 @@ non_out$ID <- as.character(non_out$ID)
 
 
 # Metadata file used to extract relevant sample information
-campy_meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/campylobacter_metadata.csv', header = TRUE)
+campy_meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Data_files_Hansen_2020/campylobacter_metadata_Hansen_2020.csv',
+                 header = TRUE)
 
-# Extract the Cases and Controls from our dataset and remove IDs of excluded samples
-campy_meta <- campy_meta %>%
-  filter(!grepl('\\<23\\>', ID))%>%  
-  filter(!grepl('\\<66\\>', ID)) %>%
-  filter(!grepl('\\<85\\>', ID))%>%
-  filter(!grepl('\\<86\\>', ID)) %>%
-  filter(Case.status != 'FollowUp')%>%
-  filter(Case.status != 'Missing')
 
 # Extract the sample IDs to match with Nonpareil output
 campy_IDs <- campy_meta %>%
