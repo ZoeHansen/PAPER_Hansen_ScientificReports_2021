@@ -13,17 +13,12 @@ library(vegan)
 gene = read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Resistome_Data/Campy_fullgene_AGS_normal.csv', 
                 header = TRUE)
 
-meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/campylobacter_metadata.csv', 
-                  header=TRUE, na.strings = c("",'NA'))
+meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Data_files_Hansen_2020/campylobacter_metadata_Hansen_2020.csv',
+                 header = TRUE)
 
 meta <- meta %>%
-  filter(!grepl('\\<23\\>', ID))%>%  
-  filter(!grepl('\\<66\\>', ID)) %>%
-  filter(!grepl('\\<85\\>', ID))%>%
-  filter(!grepl('\\<86\\>', ID)) %>%
-  dplyr::select(ID,Case.status)%>% 
-  filter(!grepl('FollowUp', Case.status))%>%
-  drop_na() 
+  dplyr::select(ID, Case.status)%>%
+  drop_na()
 
 gene.data <- left_join(meta, gene, by = "ID")
 
