@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Feb 20 14:20:54 2019
 
-@author: hansenzo
-"""
+#############################################
+
+# Merging Output from MEGARes and ResistomeAnalyzer
+
+#############################################
+
+### This script uses the output generated after alignment and annotation of ARGs. It is designed to merge output from all samples into a single file.
 
 #Convert the .tsv files to .csv files (try to remove columns, rename columns in the process)
 import pandas as pd
