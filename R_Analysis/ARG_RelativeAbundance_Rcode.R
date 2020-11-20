@@ -20,15 +20,11 @@ class_data <- class_data[, colSums(class_data != 0) > 0]
 
 
 # Import metadata
-meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/campylobacter_metadata.csv',
+meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Data_files_Hansen_2020/campylobacter_metadata_Hansen_2020.csv',
                  header = TRUE)
+
 meta <- meta %>%
-  select(ID, Case.status)%>%
-  filter(!grepl('\\<23\\>', ID))%>% 
-  filter(!grepl('\\<66\\>', ID)) %>%
-  filter(!grepl('\\<85\\>', ID))%>%
-  filter(!grepl('\\<86\\>', ID))%>%
-  filter(!grepl('FollowUp', Case.status))%>%
+  dplyr::select(ID, Case.status)%>%
   drop_na()
 
 #################################################
