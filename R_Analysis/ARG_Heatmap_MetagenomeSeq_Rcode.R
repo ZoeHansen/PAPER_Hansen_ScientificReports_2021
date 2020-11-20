@@ -5,23 +5,17 @@
 #################################################
 # Load libraries and data
 
-library(tidyr)
+library(tidyverse)
 library(metagenomeSeq)
 
 arg_data <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Resistome_Data/Campy_fullgroup_AGS_normalized.csv',
                header = TRUE)
 
-meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/campylobacter_metadata.csv',
+meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Data_files_Hansen_2020/campylobacter_metadata_Hansen_2020.csv',
                  header = TRUE)
 
 meta <- meta %>%
   dplyr::select(ID, Case.status)%>%
-  filter(!grepl('\\<23\\>', ID))%>% 
-  filter(!grepl('\\<66\\>', ID)) %>%
-  filter(!grepl('\\<85\\>', ID))%>%
-  filter(!grepl('\\<86\\>', ID)) %>%
-  filter(Case.status != 'FollowUp') %>%
-  filter(Case.status != 'Missing') %>%
   drop_na()%>%
   arrange(Case.status, ID)
 
