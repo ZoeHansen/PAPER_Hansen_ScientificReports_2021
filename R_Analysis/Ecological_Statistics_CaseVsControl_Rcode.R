@@ -13,8 +13,8 @@ library(vegan)
 library(calibrate)
 library(indicspecies)
 
-pheno <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/campylobacter_metadata.csv', 
-                  header=TRUE, na.strings = c("",'NA'))
+pheno <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Data_files_Hansen_2020/campylobacter_metadata_Hansen_2020.csv',
+                 header = TRUE, na.strings = c("", 'NA'))
 
 data = read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Resistome_Data/Campy_fullgene_AGS_normal.csv', 
                 header = TRUE)
@@ -25,12 +25,7 @@ data = read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Re
 
 #Extract the Cases and Controls from our dataset and remove IDs of excluded samples
 health <- pheno %>%
-  filter(!grepl('\\<23\\>', ID))%>% 
-  filter(!grepl('\\<66\\>', ID))%>%
-  filter(!grepl('\\<85\\>', ID))%>%
-  filter(!grepl('\\<86\\>', ID))%>%
-  dplyr::select(ID, Case.status) %>% # 
-  filter(!grepl('FollowUp', Case.status))%>%
+  dplyr::select(ID, Case.status) %>%   
   drop_na()
 
 # Merge metadata with AGS-normalized abundances
