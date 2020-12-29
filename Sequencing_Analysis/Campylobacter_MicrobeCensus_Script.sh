@@ -6,6 +6,11 @@
 
 # Information on the installation and use of MicrobeCensus can be found here: https://github.com/snayfach/MicrobeCensus
 
+### Create an output file that MicrobeCensus can append to:
+f = open('/mnt/home/hansenzo/MicrobeCensus/mc_output_SR1.txt', 'w+')
+f.write('SampleID,Avg_GS,BaseCount,GenomeEquivalents\n')
+f.close()
+
 ### Run MicrobeCensus using Python
 # Python Version 3.6.4 was used
 
@@ -30,7 +35,6 @@ python /mnt/home/hansenzo/MicrobeCensus/microbe_census_script.py
   print('Genome Equivalents:', genome_equivalents)
 
   f = open('/mnt/home/hansenzo/MicrobeCensus/mc_output_SR1.txt','a+', encoding = 'utf-8')
-  #with open('/mnt/home/hansenzo/MicrobeCensus/mc_output_test1.txt', encoding = 'utf-8') as f:
   sample = str(os.getcwd())
   sample1 = os.path.split(sample)[1]
   vals = str(sample1) + ',' + str(average_genome_size) + ',' + str(count_bases) + ',' + str(genome_equivalents) + '\n'
