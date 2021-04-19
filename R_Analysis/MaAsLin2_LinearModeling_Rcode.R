@@ -88,3 +88,5 @@ fit_data = Maaslin2(
   fixed_effects = 'Case.status',                            # include fixed effects as needed 
   random_effects = c('Gender','Age.group','Residence.type'), # include random effects as needed
   reference = 'Case.status, Control')
+
+
