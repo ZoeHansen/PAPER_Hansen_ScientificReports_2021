@@ -33,3 +33,5 @@ module load GCC/8.3.0
 module load AmrPlusPlus/2.0.2
 
 nextflow run $EBROOTAMRPLUSPLUS/main_AmrPlusPlus_v2_withRGI.nf --reads "/mnt/scratch/hansenzo/amrplusplus/*_R{1,2}.fastq.gz" --host $HOME/Database/HumanRef/GRCh38_latest_genomic.fna.gz --adapters $HOME/Database/adapters.fa --annotation "$EBROOTAMRPLUSPLUS/data/amr/megares_annotations_v1.02.csv" --amr "$EBROOTAMRPLUSPLUS/data/amr/megares_database_v1.02.fasta" --card_db $HOME/amrplusplus/amrplusplus_v2/card.json --output /mnt/scratch/hansenzo/amrplusplus_results -w /mnt/scratch/hansenzo/amrplusplus_work -profile singularity 
+
+
