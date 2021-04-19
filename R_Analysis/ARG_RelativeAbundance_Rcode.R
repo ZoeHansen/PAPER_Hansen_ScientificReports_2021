@@ -14,13 +14,14 @@ library(RColorBrewer)
 library(ggthemes)
 library(scales)
 
-class_data <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Resistome_Data/Campy_fullclass_AGS_normalized.csv',
+class_data <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Third_Analysis_ScientificReports_Submission/Resistome/campylobacter_Casecontrol_GEnorm_resistome_class.csv',
                  header = TRUE)
 class_data <- class_data[, colSums(class_data != 0) > 0]
 
 
 # Import metadata
-meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Data_files_Hansen_2020/campylobacter_metadata_Hansen_2020.csv',
+
+meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Third_Analysis_ScientificReports_Submission/ScientificReports_DataFiles/campylobacter_metadata_casecontrol_Hansen2021.csv',
                  header = TRUE)
 
 meta <- meta %>%
@@ -107,26 +108,5 @@ ggplot(data = ra_df.long, aes(x = Num, y = value, fill = ARG_Class))+
   labs(fill = 'ARG Class')+
   xlab('\nCase Status\n')+
   ylab('Relative Abundance per Sample\n')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
