@@ -10,10 +10,10 @@ library(ape)
 library(RColorBrewer)
 library(vegan)
 
-gene = read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Resistome_Data/Campy_fullgene_AGS_normal.csv', 
+gene = read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Third_Analysis_ScientificReports_Submission/Resistome/campylobacter_casecontrol_RPKG_resistome_gene.csv', 
                 header = TRUE)
 
-meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Data_files_Hansen_2020/campylobacter_metadata_Hansen_2020.csv',
+meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Third_Analysis_ScientificReports_Submission/ScientificReports_DataFiles/campylobacter_metadata_casecontrol_Hansen2021.csv',
                  header = TRUE)
 
 meta <- meta %>%
@@ -72,7 +72,6 @@ case.clusters <- left_join(clus3.2, gene.data, by = 'ID')
 ### See 'Ecological_Statistics_CaseVsControl_Rcode' 
 
 
-
 # Create a separate dataframe that includes controls for comparison
 
 case.control.clust <- full_join(clus3.2, gene.data, by = "ID")
@@ -81,5 +80,6 @@ case.control.clust <- case.control.clust %>%
 
 ### Perform alpha-, beta- diversity analyses for case clusters vs. controls with this dataframe 
 ### See 'Ecological_Statistics_CaseVsControl_Rcode'
+### Figure 5 - Alpha Diversity of case clusters
 ### Figure 6 - PCoA of case clusters shown with controls
 
