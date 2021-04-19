@@ -1,6 +1,6 @@
 ################################################
 
-# Campylobacter Metagenomics Pipeline
+# Campylobacter Metagenomics Pipeline -- Manual
 
 ################################################
 
