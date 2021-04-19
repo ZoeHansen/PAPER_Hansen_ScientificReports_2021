@@ -4,7 +4,6 @@
 
 #################################################
 # Load libraries
-
 library(Nonpareil)
 library(vegan)
 library(tidyverse)
@@ -24,7 +23,7 @@ non_out$ID <- as.character(non_out$ID)
 
 
 # Metadata file used to extract relevant sample information
-campy_meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Second_Analysis/Data_files_Hansen_2020/campylobacter_metadata_Hansen_2020.csv',
+campy_meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/Third_Analysis_ScientificReports_Submission/ScientificReports_DataFiles/campylobacter_metadata_casecontrol_Hansen2021.csv',
                  header = TRUE)
 
 
@@ -62,17 +61,29 @@ sapply(nps$np.curves, predict, 10e9)
 # Exploring Average Genome Size (AGS) and Genome Equivalents (GE)
 #################################################
 
+campy_meta <- read.csv('D://Manning_ERIN/CampylobacterSubset_AIM_ONE/campylobacter_metadata_casecontrol.csv',
+                 header = TRUE)
+
 # Use the "campy_meta" datagframe from above to extract the Average Genome Size (AGS) and Genome Equivalents (GE)
 campy_seq <- campy_meta %>%
-  select(ID, Case.status, Avg_GS, GenomeEquivalents)
+  select(ER_ID, Case.status, Avg_GS, GenomeEquivalents)
 
 # Convert to "long" format
-smc_long <- melt(campy_seq, id.vars=c('ID','Case.status'))
+smc_long <- melt(campy_seq, id.vars=c('ER_ID','Case.status'))
 
 #Determine means
 c_means <- campy_seq %>%
   group_by(Case.status)%>%
   summarise(MeanAGS = mean(Avg_GS), MeanGE = mean(GenomeEquivalents))
+
+c_minmax <- campy_seq %>%
+  group_by(Case.status)%>%
+  summarise(MinAGS=min(Avg_GS), MaxAGS=max(Avg_GS), MinGE=min(GenomeEquivalents), MaxGE=max(GenomeEquivalents))
+
+
+compare_means(Avg_GS ~ Case.status, campy_seq, method='wilcox.test')
+compare_means(GenomeEquivalents ~ Case.status, campy_seq, method= 'wilcox.test')
+
 
 campy_comparisons <- list(c('Case', 'Control'))
 
