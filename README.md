@@ -1,5 +1,5 @@
 # GitHub Repository for
-## Composition of the human gut resistome in patients with acute Campylobacter infections
+## Comparing gut resistome composition among patients with acute Campylobacter infections and healthy family members
 
 ### Zoe A Hansen, Wonhee Cha, Brian Nohomovich, Duane W. Newton, Paul Lephart, Hossein Salimnia, Walid Khalife, Ashley Shade, James T. Rudrik, Shannon D. Manning
 
